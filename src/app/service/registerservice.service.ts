@@ -12,7 +12,7 @@ export class RegisterserviceService {
 
   constructor( private  httpClient : HttpClient) { }
 
-  public addAddressBookData(userRegisterService : UserRegisterService) : Observable<any>{
+  public registerBookStoreData(userRegisterService : UserRegisterService) : Observable<any>{
     return this.httpClient.post(`${this.mainUrl}/register`, userRegisterService)
   }
 }
