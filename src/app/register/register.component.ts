@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup,Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserRegisterService} from  "../entities/user-register.service";
 import {RegisterserviceService} from  "../service/registerservice.service";
@@ -12,17 +12,18 @@ export class RegisterComponent   {
   public userRegisterService: UserRegisterService = new UserRegisterService;
   public bookStoreFormGroup: FormGroup ;
 
-  public   kyc;
+  
 	public  dateOfBirth;
 	public  updatedDate;
 	public registerDate;
   constructor( private formBuilder: FormBuilder ,private registerserviceService:RegisterserviceService, private router: Router) {
 
  this.bookStoreFormGroup=this.formBuilder.group({
-  name:new FormControl(''),
-  mobileNumber :new FormControl(''),
-  email:new FormControl(''),
-  password:new FormControl('')
+  name:new FormControl('', [Validators.required, Validators.pattern("^[A-Z][a-zA-z\\s]{2,}$")]),
+  mobileNumber :new FormControl('', [Validators.required, Validators.pattern("^[6-9][0-9]{9}$")]),
+  email:new FormControl('',Validators.required),
+  password:new FormControl('', Validators.required),
+  kyc:new FormControl('', Validators.required)
 });
   }
 

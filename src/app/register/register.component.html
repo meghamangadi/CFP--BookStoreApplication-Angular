@@ -10,16 +10,17 @@
                 <form [formGroup]="bookStoreFormGroup" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="name" class="form-control" id="exampleInputName"
+                        <input    type="name" class="form-control" id="exampleInputName"
                         placeholder="Enter Name" formControlName="name" >
-
+                       <span class="text-danger"  *ngIf="!bookStoreFormGroup.get('name').valid && bookStoreFormGroup.get('name').touched">Name is required</span>  
                     </div>
 
                     <div class="form-group">
                         <label>Mobile Number</label>
                         <input type="number" class="form-control" id="mobile"
                         placeholder="Enter Mobile Number" formControlName="mobileNumber">
-
+                        <span class="text-danger"  *ngIf="!bookStoreFormGroup.get('mobileNumber').valid && bookStoreFormGroup.get('mobileNumber').touched">Mobile is required</span>  
+                   
                     </div>
 
 
@@ -28,14 +29,27 @@
                         <label>Email address</label>
                         <input type="email" class="form-control" id="email"
                         placeholder="Enter Email" formControlName="email">
-
+                        <span class="text-danger"  *ngIf="!bookStoreFormGroup.get('email').valid && bookStoreFormGroup.get('email').touched">Email is required</span>  
+                   
                     </div>
 
                     <div class="form-group">
                         <label>Password</label>
                         <input type="password" class="form-control" id="password"
                         placeholder="Password" formControlName="password">
+                        <span class="text-danger"  *ngIf="!bookStoreFormGroup.get('password').valid && bookStoreFormGroup.get('password').touched">Password is required</span>  
+                  
                     </div>
+
+                    
+                        <div class="form-group">
+                          <label >Upload Kyc file</label>
+                          <input type="file" class="form-control-file" id="kyc"
+                          formControlName="kyc">
+                          
+                        </div>
+                         
+                          
 
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
