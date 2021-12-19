@@ -9,10 +9,11 @@ import {Observable} from "rxjs";
 export class LoginserviceService {
 
   private mainUrl  = "http://localhost:8085/user"
+  private header={headers:new Headers({'Content-Type':'application/json'})};
 
   constructor(private  httpClient : HttpClient) { }
 
   public loginBookStoreData(userLoginService : UserLoginService) : Observable<any>{
-    return this.httpClient.post(`${this.mainUrl}/login`, UserLoginService)
+    return this.httpClient.post(`${this.mainUrl}/login`,UserLoginService)
   }
 }

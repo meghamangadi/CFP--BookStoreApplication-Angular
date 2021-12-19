@@ -34,7 +34,7 @@ onSubmit(): void {
   this.registerserviceService.registerBookStoreData(this.userRegisterService).subscribe((response: any)=>{
     console.log(response);
     setTimeout(() => {
-      this.router.navigateByUrl("/login")
+      this.router.navigateByUrl("/register")
     }, 1000);
   });
   

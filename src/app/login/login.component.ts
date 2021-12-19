@@ -29,14 +29,14 @@ export class LoginComponent {
 
   onSubmit(): void {
 
-    this.userLoginService = this.bookStoreLoginFormGroup.value;
-    console.log(this.loginserviceService)
-    this.loginserviceService.loginBookStoreData(this.userLoginService).subscribe((response: any)=>{
-      console.log(response);
-      setTimeout(() => {
-        this.router.navigateByUrl("/login")
-      }, 1000);
-    });
+  //  this.userLoginService = this.bookStoreLoginFormGroup.value;
+  //  console.log(this.userLoginService)
+     this.loginserviceService.loginBookStoreData( this.bookStoreLoginFormGroup.value).subscribe((response: any)=>{
+       console.log(response);
+      //  setTimeout(() => {
+      //    this.router.navigateByUrl("/login")
+      //  }, 100000000);
+     });
 
   }
 }
