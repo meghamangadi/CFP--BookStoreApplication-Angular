@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardComponent } from '../app/common/dashboard/dashboard.component';
 import { BookComponent } from '../app/common/book/book.component';
 import { AllBooksComponent } from '../app/common/all-books/all-books.component';
+import { CartComponent } from '../app/common/cart/cart.component';
 const routes: Routes = [
   {
     path:'', redirectTo:'register',pathMatch:'full'
@@ -17,13 +18,16 @@ const routes: Routes = [
   path:'register', component:RegisterComponent
 },
 {
-  path:'dashboard', component:DashboardComponent
+  path:'dashboardExample', component:DashboardComponent
 },
 {
   path:'book', component:BookComponent
 },
 {
-  path:'getAllBooks', component:AllBooksComponent
+  path:'dashboard', component:AllBooksComponent
+},
+{
+  path:'cart', component:CartComponent
 }
 ];
 

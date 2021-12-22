@@ -1,58 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+ 
 import {Router} from "@angular/router";
 import {BookServiceService} from "../../service/book-service.service";
 import {CartServiceService} from "../../service/cart-service.service";
 import { BookModel } from 'src/app/Model/book-model';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements  OnInit {
+export class HeaderComponent implements  OnInit { bookName='';
 
+@Input() fullDisplay:boolean;
 
-  navbarFixed: boolean = false;
-  name: string = "Profile";
-  searchTerm: any;
-  bookArray!:BookModel[];
+@Output() searchEvent= new EventEmitter<String>(); 
 
-  constructor( private bookServiceService: BookServiceService, private route: Router,
-    private cartServiceService:CartServiceService) { }
+constructor(public router:Router, public userService:UserService) {
+  this.fullDisplay=true;
+ }
 
-  ngOnInit(): void {
-    if (localStorage.getItem("email") == "arunbiradar24@gmail.com"){
-      this.name = "Arun";
-    }if (localStorage.getItem("email") == "anzarshaikh373@gmail.com"){
-      this.name = "Anzar";
-    }
-    this.loadCartCount();
-  }
+ngOnInit(): void {
+}
 
-
-  search(event: any) {
-    this.searchTerm = (event.target as HTMLInputElement).value;
-    console.log(this.searchTerm);
-  }
-
-
-  navigateTCart() {
-    this.route.navigate(["/my-cart"])
-  }
-  loadCartCount(){
-    // if(localStorage.getItem("token")!=null){
-    //   this.cartServiceService.loadCart().subscribe(data =>{
-    //     // @ts-ignore
-    //     this.bookArray = data.data;
-    //   })
-    // }
-  }
-
-  goTo(component: string) {
-    // if (component == "/login"){
-    //   localStorage.removeItem("token")
-    //   localStorage.removeItem("email")
-    // }
-    // this.route.navigate([component])
-  }
+ 
 }

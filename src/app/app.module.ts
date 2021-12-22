@@ -27,7 +27,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { HeaderComponent } from '../app/common/header/header.component'; 
 import { DashboardComponent } from '../app/common/dashboard/dashboard.component';
 import { BookComponent } from './common/book/book.component';
-import { AllBooksComponent } from './common/all-books/all-books.component'; 
+import { AllBooksComponent } from './common/all-books/all-books.component';
+import { CartComponent } from 'src/app/common/cart/cart.component';
+ 
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { AllBooksComponent } from './common/all-books/all-books.component';
     HeaderComponent,
     DashboardComponent,
     BookComponent,
-    AllBooksComponent
+    AllBooksComponent,
+    CartComponent
+   
 
     
   ],

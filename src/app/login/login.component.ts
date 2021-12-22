@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup,Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import { LoginserviceService } from "../service/loginservice.service";
-import { UserLoginService } from "../entities/user-login.service";
-
-
+ 
+import { LoginModel } from "src/app/Model/LoginDto";
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,9 +12,9 @@ import { UserLoginService } from "../entities/user-login.service";
 })
 export class LoginComponent {
 
-  public userLoginService: UserLoginService = new UserLoginService;
+ 
   public bookStoreLoginFormGroup: FormGroup ;
-
+  public loginModel: LoginModel = new LoginModel;
   constructor( private formBuilder: FormBuilder ,private loginserviceService:LoginserviceService, private router: Router) {
 
     this.bookStoreLoginFormGroup=this.formBuilder.group({
@@ -29,13 +29,14 @@ export class LoginComponent {
 
   onSubmit(): void {
 
-  //  this.userLoginService = this.bookStoreLoginFormGroup.value;
-  //  console.log(this.userLoginService)
-     this.loginserviceService.loginBookStoreData( this.bookStoreLoginFormGroup.value).subscribe((response: any)=>{
-       console.log(response);
-      //  setTimeout(() => {
-      //    this.router.navigateByUrl("/login")
-      //  }, 100000000);
+    
+    this.loginModel=this.bookStoreLoginFormGroup.value;
+   
+     this.loginserviceService.loginBookStoreData(this.loginModel).subscribe((response: any)=>{
+      
+        
+          this.router.navigate(["/dashboard"])
+       
      });
 
   }

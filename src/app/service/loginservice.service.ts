@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {UserLoginService} from "../entities/user-login.service";
+ 
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-
+import { LoginModel } from "src/app/Model/LoginDto";
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +13,11 @@ export class LoginserviceService {
 
   constructor(private  httpClient : HttpClient) { }
 
-  public loginBookStoreData(userLoginService : UserLoginService) : Observable<any>{
-    return this.httpClient.post(`${this.mainUrl}/login`,UserLoginService)
+  
+  public loginBookStoreData(loginModel : LoginModel) : Observable<any>{
+
+   
+    return this.httpClient.post<any>(`${this.mainUrl}/login`,loginModel)
   }
 }
+ 
