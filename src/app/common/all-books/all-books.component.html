@@ -17,48 +17,28 @@
             <div class="book-card" *ngFor="let book of bookDetails">
                 <div class="all-books" (click)="goToBookDetails(book.bookId)">
                     <div>
-                      
                         <img src="../../../../assets/Images/{{book.logo}}">
                     </div>
                     <div class="book-details">
                         <div class="details">
                             <mat-label class="book-name">{{book.bookName}}</mat-label>
+
                             <mat-label class="author">{{book.bookAuthor}}</mat-label>
-                            
-                            
-
-                            <!-- <div class="addedbtn " >
-                                <button style=" height: 32px; width: 11px; background-color: rgb(151, 13, 13);
-                              border-radius: 2px; color: whitesmoke; text-align:left; " mat-button>
-                                ADDED TO BAG
-                        </button>
-                            </div>
-                            <div class="addedbtn " 
-                            >
-                                <button style=" height: 35px; width: 110px; margin-left: 3rem; border-radius: 0px; display: flex;
-                              align-items:flex-end; justify-content:right;
-                              border: 1px solid #e0d6d6;
-                                  outline: none; border-radius: 1px;
-                                opacity: 1; " mat-button>WISHLIST</button>
-                            </div> -->
-
-                            <!-- <div>
-                                <button style=" background-color: rgb(151, 13, 13);"matt-button> Add To Bagg</button>
-                                
-                                <button matt-stroked-button> WISHLIST</button>
-
-                            </div> -->
-
-                         
-                            <div class="example-button-row">
-                              <button  style=" background-color: rgb(151, 13, 13);"mat-flat-button>Add To Bag</button>
+                             <mat-label class="book-name" >Rs {{book.bookPrice}}</mat-label>
                               
-                              <button  style=" background-color:blue" mat-flat-button>wishlist</button>
+                             <div class="example-button-row">
+                              <button  (click)="addToCart(book.bookId)" style=" background-color: rgb(136, 10, 5); margin-right: 15px;"mat-flat-button>ADD TO BAG</button>
+                              
+                              <button  style="border: 1px solid #e0d6d6;
+                              outline: none;
+                              width: 83px;
+                              height: 35px;
+                              background-color: white;
+                              border-radius: 3px;">WISHLIST</button>
                               
                               
                            
-                            </div>
-
+                            </div> 
 
                         </div>
                     </div>
@@ -67,4 +47,5 @@
         </div>
     </div>
 </div>
+
  

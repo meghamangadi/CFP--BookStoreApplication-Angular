@@ -23,7 +23,10 @@ export class AllBooksComponent implements OnInit {
        this.bookDetails = data.object;
      })
   }
+  addToCart(bookId: number){
 
+    
+  }
   sortByPriceLowToHigh() {
     // this.bookService.sortByPriceLowToHigh().subscribe(data => {
     //   this.bookDetails = data

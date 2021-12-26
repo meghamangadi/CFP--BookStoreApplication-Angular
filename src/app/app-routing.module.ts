@@ -7,6 +7,7 @@ import { DashboardComponent } from '../app/common/dashboard/dashboard.component'
 import { BookComponent } from '../app/common/book/book.component';
 import { AllBooksComponent } from '../app/common/all-books/all-books.component';
 import { CartComponent } from '../app/common/cart/cart.component';
+import { OrderGreetingComponent } from '../app/common/order-greeting/order-greeting.component';
 const routes: Routes = [
   {
     path:'', redirectTo:'register',pathMatch:'full'
@@ -28,7 +29,11 @@ const routes: Routes = [
 },
 {
   path:'cart', component:CartComponent
+},
+{
+  path:'greeting', component:OrderGreetingComponent
 }
+
 ];
 
 @NgModule({

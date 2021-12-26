@@ -28,7 +28,9 @@ export class CartComponent implements OnInit {
     address: '',
     city: '',
     landmark: '',
-    type: 1
+    phonenumber:'',
+    type: 1,
+   
   }
 
   customerSection = false;

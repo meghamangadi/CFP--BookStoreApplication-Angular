@@ -33,47 +33,57 @@
                                     (click)="addOneBook(bookObj.book.id, bookObj.quantity)">+</button>
                                 <span class="remove" (click)="remove(bookObj.book.id)">Remove</span>
 
-                                <button (click)="customerSection=true" class="place-order" > Place Order</button>
+                                <!-- <button (click)="customerSection=true" class="place-order" > Place Order</button> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </mat-card>
+    <div>
+        <button (click)="customerSection=true" class="place-order" > Place Order</button>
+       </div>
     <mat-accordion>
         <mat-expansion-panel *ngIf="customerSection" class="forcard">
-            <mat-expansion-panel-header>
-                Customer Details
-            </mat-expansion-panel-header>
+             <mat-expansion-panel-header>  
+                <label class="label"> Customer Details</label>
+              </mat-expansion-panel-header>  
             <mat-card  class="card2">
                 <div class="info">
                     <span class="title2">Customer Details</span>
                     <div class="input-row">
-                        <label class="label" >Full Name</label>
-                        <input class="input3" [(ngModel)]="addressModel.name" type="text" placeholder=" Enter your Full Name ">
+                        <label class="label" > </label>
+                        <input class="input3" [(ngModel)]="addressModel.name" type="text" placeholder=" Name ">
                     </div>
+                  
                     <div class="input-row2">
-                        <label class="label">Mobile Number</label>
-                        <input class="input3" [(ngModel)]="addressModel.pincode" type="tel" placeholder=" Enter your Mobile Number">
+                         <label class="label"> </label> 
+                        <input class="input3" [(ngModel)]="addressModel.pincode" type="tel" placeholder="Pincode">
+                    </div>
+
+                     <div class="input-row">
+                        <label class="label" > </label>
+                        <input class="input3" [(ngModel)]="addressModel.phonenumber" type="number" placeholder=" phone number ">
                     </div>
                     <div class="input-row">
-                        <label class="label">Address</label>
-                        <input class="input2" [(ngModel)]="addressModel.address" type="text" placeholder=" Enter your Address">
+                        <label class="label"></label>  
+                        <input class="input2" [(ngModel)]="addressModel.address" type="text" placeholder="  Address">
                     </div>
                     <div class="input-row">
-                        <label class="label">City/town</label>
-                        <input class="input3" [(ngModel)]="addressModel.city" type="text" placeholder=" Enter your City ">
+                        <label class="label"> </label>
+                        <input class="input3" [(ngModel)]="addressModel.city" type="text" placeholder=" City/town ">
                     </div>
                     <div class="input-row2">
-                        <label class="label">State</label>
-                        <input class="input3" [(ngModel)]="addressModel.locality" type="text" placeholder=" Enter your State">
+                        <label class="label"> </label>
+                        <input class="input3" [(ngModel)]="addressModel.locality" type="text" placeholder=" State">
                     </div>
                     <div class="type"><span>Type</span></div>
                     <div class="radio" >
                         <div class="radio1" (click)="typeCall(1)" >
                             <input type="radio" checked=type[0] id="home" name="type" value="1">
-                            <label class="homes" for="home">Home</label><br>
+                            <label class="homes" for="home" color:black>Home</label><br>
                         </div>
                         <div class="radio2" (click)="typeCall(2)">
                             <input type="radio" x id="work" name="type" value="2">
@@ -106,7 +116,7 @@
                             <div class="bookdetails">
 
                                 <div class="booktitle">
-                                    {{cartlist[0].book.name}} <div *ngIf="cartlist.length>1">+{{cartlist.length-1}}
+                                    {{cartlist[0].book.name}} <div *ngIf="cartlist.length>1"  color="black">+{{cartlist.length-1}}
                                     </div>
                                 </div>
                                 <div class="sub">
@@ -117,13 +127,16 @@
                                     <div class="marked"><s>Rs. {{markedPrice}}</s></div>
                                 </div>
                             </div>
+                       
                             <button class="checkout" (click)="placeOrder()">Checkout</button>
                         </div>
                     </div>
-                    <div>
-                    </div>
+              
                 </div>
             </mat-card>
         </mat-expansion-panel>
     </mat-accordion>
 </div>
+
+
+

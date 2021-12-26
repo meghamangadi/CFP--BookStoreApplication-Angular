@@ -59,13 +59,13 @@
 }
 
 .book-card {
-    margin-bottom: 11%;
+    margin-bottom: 25%;
 }
 
 .all-books {
     //   border: 2px solid #0a0102;
-    width: 233px;
-    height: 180px;
+    width: 231px;
+    height: 160px;
     background: #f5f5f5 0% 0% no-repeat padding-box;
     border-radius: 2px 2px 0px 0px;
     opacity: 1;
@@ -85,7 +85,7 @@ img {
 }
 
 .book-details {
-    height: 55%;
+    height: 84%;
     width: 231px;
     margin-top: 10%;
     border: #0a0102;
@@ -99,7 +99,7 @@ img {
 
 .book-name {
     width: 141px;
-    height: 30px;
+    height: 35px;
     display: flex;
     text-align: left;
     font: normal normal bolder 14px/40px Roboto;

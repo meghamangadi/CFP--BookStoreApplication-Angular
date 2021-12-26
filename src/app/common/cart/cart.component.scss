@@ -5,7 +5,7 @@
 
 .card1 {
     margin-top: 10px;
-    width: 750px;
+    width: 780px;
     height: 180px;
     background: rgb(255, 255, 255) 0% 0% no-repeat padding-box;
     border: 1px solid #DCDCDC;
@@ -67,6 +67,7 @@
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #DBDBDB;
     border-radius: 1px;
+    color:#9d9d9d;
 }
 
 .dropdown {
@@ -156,7 +157,7 @@
 .card2 {
     margin-top: 10px;
     width: 750px;
-    height: 450px;
+    height: 500px;
     background: hsl(0, 0%, 100%) 0% 0% no-repeat padding-box;
     border: 1px solid #DCDCDC;
     border-radius: 1px;
@@ -185,6 +186,7 @@
     font-weight: bold;
     padding: 1px;
     opacity: 1;
+    color: black;
 }
 
 .input2 {
@@ -224,6 +226,8 @@
     font-size: 16px;
     font-family: Roboto;
     display: inline-block;
+    color:black;
+    
 }
 
 .radio2 {
@@ -284,13 +288,16 @@
 }
 
 .place-order{
-    margin-left: 314px;
+    margin-left: 600px;
     color: #ffffff;
     background-color: #3371B5;
     border: none;
     height: 30px;
     width: 111px;
     border-radius: 2px;
+    margin-top: 10px;
+    margin-left: 590px;
+    margin-bottom: 5px;
 }
 
 button{
