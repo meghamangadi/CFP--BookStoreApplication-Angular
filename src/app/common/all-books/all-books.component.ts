@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {  BookModel } from 'src/app/Model/book-model';
 import { Router } from "@angular/router";
 import {  BookServiceService } from 'src/app/service/book-service.service';
+import {CartModel} from 'src/app/Model/CartModel ';
+import{CartServiceService} from 'src/app/service/cart-service.service'
 @Component({
   selector: 'app-all-books',
   templateUrl: './all-books.component.html',
@@ -12,7 +14,9 @@ export class AllBooksComponent implements OnInit {
   
   bookDetails: BookModel[] = [];
 
-  constructor(private bookServiceService: BookServiceService, private route: Router) { }
+  public cartModel: CartModel = new CartModel;
+  
+  constructor(private bookServiceService: BookServiceService,private cartServiceService:CartServiceService, private route: Router) { }
 
   ngOnInit(): void {
     this.BookDetails();
@@ -23,8 +27,12 @@ export class AllBooksComponent implements OnInit {
        this.bookDetails = data.object;
      })
   }
-  addToCart(bookId: number){
-
+  addToCart(bookId: number ){
+   this.cartModel.bookId=bookId;
+   this.cartModel.quantity=1;
+    console.log("cart deatils" +bookId  );
+    
+    this.cartServiceService.addToCart(this.cartModel).subscribe((response: any)=>{this.BookDetails();});
     
   }
   sortByPriceLowToHigh() {

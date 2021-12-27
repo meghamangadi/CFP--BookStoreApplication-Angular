@@ -1,2 +1,49 @@
 <app-header></app-header>
  
+<div class="booksDashBoard">
+
+    <div class="book_text">
+        <div>
+            <Div>Book
+                <span class="length">
+                ({{booksList.length}})
+                </span>
+            </Div>
+        </div>
+
+        <div class="body">
+
+            <mat-card class="matcard"  *ngFor="let books of  booksList" >
+                <div>
+                    <div class=" book_image">
+
+                        <img src="../../../../assets/Images/{{books.logo}}" alt="book" class="book_img">
+                        <div class="description"><span class="bookDetails">BOOKDetails:</span> {{books.bookDescription}}</div>
+                        <span class="outOfStock" *ngIf="books.bookQuantity==0">OUT OF STOCK</span>
+
+                    </div>
+
+                    <div class="book_name" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        {{books.bookName}}
+
+                    </div>
+                    <div class="author_name">
+                        by {{books.bookAuthor}}
+
+                    </div>
+
+                    <div class="price">
+                        <div class="book_price">Rs.{{books.bookPrice}}</div>
+                    </div>
+                    <div class="button-action">
+                        <button class="add-to-cart" (click)="onClick(books.bookId)" [hidden]="books.bookQuantity==0" *ngIf="!itemExists.includes(books.bookId)">Add&nbsp;To BAG</button>
+                        <button class="added-to-cart" [hidden]="!itemExists.includes(books.bookId) || books.bookQuantity==0">Added&nbsp;To Bag</button>
+                        <button class="wishlist" *ngIf="books.bookQuantity!=0 && !itemExists.includes(books.bookId)">WISHLIST</button>
+                        <button class="wishlist-zero" *ngIf="books.bookQuantity==0">WISHLIST</button>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

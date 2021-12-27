@@ -27,11 +27,11 @@
 
                             <div class="buttons">
                                 <button class="circle"
-                                    (click)="removeOneBook(bookObj.book.id, bookObj.quantity)">-</button>
+                                    (click)="removeOneBook(bookObj.id, bookObj.quantity)">-</button>
                                 <span class="square">{{bookObj.quantity}}</span>
                                 <button class="circle"
-                                    (click)="addOneBook(bookObj.book.id, bookObj.quantity)">+</button>
-                                <span class="remove" (click)="remove(bookObj.book.id)">Remove</span>
+                                    (click)="addToCartQuantity(bookObj.id, bookObj.quantity)">+</button>
+                                <span class="remove" (click)="remove(bookObj.id)">Remove</span>
 
                                 <!-- <button (click)="customerSection=true" class="place-order" > Place Order</button> -->
                             </div>
@@ -103,32 +103,31 @@
     <mat-accordion >
         <mat-expansion-panel *ngIf="summarySection" class="forcard">
             <mat-expansion-panel-header>
-                Order Summary
+                <label class="label"> Order Summary</label>   
             </mat-expansion-panel-header>
             <mat-card class="card1">
-                <div>
-                    <span class="title">Order Summary</span>
-                </div>
+               
                 <div>
                     <div class="book1">
-                        <img class="bookimg" src="{{cartlist[0].book.img}}" />
+                        <img class="bookimg" src="../../../../assets/Images/{{cartlist[0].book.logo}}" />
                         <div>
                             <div class="bookdetails">
 
                                 <div class="booktitle">
-                                    {{cartlist[0].book.name}} <div *ngIf="cartlist.length>1"  color="black">+{{cartlist.length-1}}
+                                    {{cartlist[0].book.bookName}} <div *ngIf="cartlist.length>1"  color="black">+{{cartlist.length-1}}
                                     </div>
                                 </div>
                                 <div class="sub">
-
+                                    {{cartlist[0].book.bookAuthor}}
                                 </div>
                                 <div class="price">
+                                   
                                     Rs. {{totalPrice}}
-                                    <div class="marked"><s>Rs. {{markedPrice}}</s></div>
+                                    <div class="price"><s></s></div>
                                 </div>
                             </div>
                        
-                            <button class="checkout" (click)="placeOrder()">Checkout</button>
+                            <button class="checkout" (click)="placeOrder()" routerLink="/greeting">Checkout</button>
                         </div>
                     </div>
               

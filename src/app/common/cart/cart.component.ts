@@ -58,17 +58,17 @@ export class CartComponent implements OnInit {
   }
 
   remove(bookId: number) {
-    // this.bookService.removeFromCart(bookId, 0).subscribe(n => this.reload());
+    this.cartService.removeBook(bookId).subscribe(n => this.reload());
 
   }
 
   removeOneBook(bookId: number, bookQunatity: number) {
-    // this.bookService.removeFromCart(bookId, (bookQunatity - 1)).subscribe(n => { this.reload(); console.log(bookQunatity - 1) });
+    this.cartService.addToCartQuantity(bookId, bookQunatity - 1).subscribe(n => { this.reload(); console.log(bookQunatity + 1) });
 
   }
 
-  addOneBook(bookId: number, bookQunatity: number) {
-    // this.bookService.addToCart(bookId, bookQunatity + 1).subscribe(n => { this.reload(); console.log(bookQunatity + 1) });
+  addToCartQuantity(bookId: number, bookQunatity: number) {
+     this.cartService.addToCartQuantity(bookId, bookQunatity + 1).subscribe(n => { this.reload(); console.log(bookQunatity + 1) });
 
   }
 
@@ -116,6 +116,9 @@ export class CartComponent implements OnInit {
   }
 
   addressTypeSave() {
+   
+    this.summarySection = true;
+   
     // this.userService.userAddress(this.addressModel).subscribe(n => { console.log("addressSaved"); this.summarySection = true });
 
   }

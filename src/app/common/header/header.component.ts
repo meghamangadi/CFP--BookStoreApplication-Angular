@@ -13,17 +13,31 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements  OnInit { bookName='';
-
+public cartlist: any[] = []
+public totalPrice: number = 0;
+public markedPrice: number = 0;
 @Input() fullDisplay:boolean;
 
 @Output() searchEvent= new EventEmitter<String>(); 
 
-constructor(public router:Router, public userService:UserService) {
+constructor(public router:Router, public userService:UserService,public cartService: CartServiceService) {
   this.fullDisplay=true;
  }
 
 ngOnInit(): void {
+  this.reload();
 }
 
  
+reload() {
+  this.cartService.getCartlist().subscribe((n: any) => {
+    this.cartlist = n.object
+   for (let book of this.cartlist) {
+     this.totalPrice = this.totalPrice + (book.quantity * book.book.bookPrice);
+     this.markedPrice = this.markedPrice + (book.quantity * book.book.markedPrice);
+     console.log("onit");
+   console.log(this.markedPrice);
+   }
+ });
+}
 }
