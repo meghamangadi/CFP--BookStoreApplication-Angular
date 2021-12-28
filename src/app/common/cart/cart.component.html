@@ -51,12 +51,14 @@
                 <label class="label"> Customer Details</label>
               </mat-expansion-panel-header>  
             <mat-card  class="card2">
+                 
                 <div class="info">
                     <span class="title2">Customer Details</span>
                     <div class="input-row">
-                        <label class="label" > </label>
-                        <input class="input3" [(ngModel)]="addressModel.name" type="text" placeholder=" Name ">
-                    </div>
+                       
+                        <input class="input3" [(ngModel)]="addressModel.name" type="text" placeholder=" Name "  >
+                        
+                                   </div>
                   
                     <div class="input-row2">
                          <label class="label"> </label> 
@@ -97,6 +99,7 @@
                     <button (click)="addressTypeSave()" class="continue"> continue</button>
 
                 </div>
+                
             </mat-card>
         </mat-expansion-panel>
     </mat-accordion>
@@ -115,6 +118,7 @@
 
                                 <div class="booktitle">
                                     {{cartlist[0].book.bookName}} <div *ngIf="cartlist.length>1"  color="black">+{{cartlist.length-1}}
+                                    
                                     </div>
                                 </div>
                                 <div class="sub">
@@ -132,6 +136,7 @@
                     </div>
               
                 </div>
+             
             </mat-card>
         </mat-expansion-panel>
     </mat-accordion>

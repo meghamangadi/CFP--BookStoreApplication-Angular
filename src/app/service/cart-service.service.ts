@@ -18,6 +18,10 @@ export class CartServiceService {
   removeBook(id: number):Observable<any> {
     return this.http.delete(this.baseUrl+"/remove/"+id, {headers: new HttpHeaders({token: localStorage.token})})
   }
+
+  removeBookAll():Observable<any> {
+    return this.http.delete(this.baseUrl+"/removeAll", {headers: new HttpHeaders({token: localStorage.token})})
+  }
   addToCartQuantity(cartId: number, quantity: number) {
     let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.GgoSYfqzLaauEcwAguIvHil0HjXsHGC_3sjWmvhrLKU';
    

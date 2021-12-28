@@ -6,7 +6,7 @@ import { CartResponseModel } from "src/app/Model/CartResponseModel";
 import { Router } from '@angular/router';
 import { BookServiceService } from 'src/app/service/book-service.service';
 import { UserService } from 'src/app/service/user.service';
-
+import {FormBuilder, FormControl, FormGroup,Validators} from "@angular/forms";
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -14,7 +14,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class CartComponent implements OnInit {
   public cartlist: any[] = []
-
+  public customerFormGroup: FormGroup ;
   public totalPrice: number = 0;
   public markedPrice: number = 0;
 
@@ -63,29 +63,26 @@ export class CartComponent implements OnInit {
   }
 
   removeOneBook(bookId: number, bookQunatity: number) {
-    this.cartService.addToCartQuantity(bookId, bookQunatity - 1).subscribe(n => { this.reload(); console.log(bookQunatity + 1) });
+    if(bookQunatity>1){
 
+      this.cartService.addToCartQuantity(bookId, bookQunatity - 1).subscribe(n => { this.reload(); console.log(bookQunatity + 1) });
+
+    }
+  
   }
 
   addToCartQuantity(bookId: number, bookQunatity: number) {
-     this.cartService.addToCartQuantity(bookId, bookQunatity + 1).subscribe(n => { this.reload(); console.log(bookQunatity + 1) });
 
+    if(bookQunatity<20){
+     this.cartService.addToCartQuantity(bookId, bookQunatity + 1).subscribe(n => { this.reload(); console.log(bookQunatity + 1) });
+    }
   }
 
 
   placeOrder( ) {
     this.customerSection = true;
-    // let count = 1;
-    // for (let type of this.type) {
+    this.cartService.removeBookAll().subscribe(n => this.reload());
 
-    //   if (type) {
-    //     this.addressModel.type = count;
-    //     break;
-    //   }
-    //   count++;
-    // }
-    // this.bookService.placeOrder().subscribe(n => console.log("orderPlaced!"));
-    // this.router.navigate(["/greeting"]);
   }
 
   

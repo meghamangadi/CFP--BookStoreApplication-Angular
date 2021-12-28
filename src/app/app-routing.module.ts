@@ -10,7 +10,7 @@ import { CartComponent } from '../app/common/cart/cart.component';
 import { OrderGreetingComponent } from '../app/common/order-greeting/order-greeting.component';
 const routes: Routes = [
   {
-    path:'', component:AllBooksComponent
+    path:'',  component:RegisterComponent
   },
 {
   path:'login', component:LoginComponent

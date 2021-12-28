@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
   "quantity" : 1});
 
   this.cartServiceService.addToCart(this.body).subscribe(response => {
-
+    
     if(id && !this.itemExists.includes(id)){
       this.itemExists.push(id);
     }
