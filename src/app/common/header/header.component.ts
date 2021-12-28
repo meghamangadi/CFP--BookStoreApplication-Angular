@@ -17,7 +17,7 @@ public cartlist: any[] = []
 public totalPrice: number = 0;
 public markedPrice: number = 0;
 @Input() fullDisplay:boolean;
-
+public searchTerm: string ='';
 @Output() searchEvent= new EventEmitter<String>(); 
 
 constructor(public router:Router, public userService:UserService,public cartService: CartServiceService) {
@@ -26,6 +26,11 @@ constructor(public router:Router, public userService:UserService,public cartServ
 
 ngOnInit(): void {
   this.reload();
+}
+search(event:any){
+  this.searchTerm = (event.target as HTMLInputElement).value;
+  console.log(this.searchTerm);
+   this.cartService.search.next(this.searchTerm);
 }
 
  

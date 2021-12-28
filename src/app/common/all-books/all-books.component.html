@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="book-all">
-            <div class="book-card" *ngFor="let book of bookDetails">
+            <div class="book-card" *ngFor="let book of bookDetails | filter:searchTerm">
                 <div class="all-books" (click)="goToBookDetails(book.bookId)">
                     <div>
                         <img src="../../../../assets/Images/{{book.logo}}">
@@ -27,15 +27,20 @@
                              <mat-label class="book-name" >Rs {{book.bookPrice}}</mat-label>
                               
                              <div class="example-button-row">
-                              <button  (click)="addToCart( book.bookId)" style=" background-color: rgb(136, 10, 5); margin-right: 15px;"mat-flat-button>ADD TO BAG</button>
-                              
+
+                
+                             
+                              <button  (click)="addToCart( book.bookId)"  [hidden]="book.quantity==0 && hideButton == true" *ngIf="!itemExists.includes(book.bookId)" style=" background-color: rgb(136, 10, 5); margin-right: 15px;"mat-flat-button>ADD TO BAG</button>
+                              <button class="added-to-cart" [hidden]="!itemExists.includes(book.bookId) || book.quantity==0" >Added&nbsp;To Bag</button>
+                             
                               <button  style="border: 1px solid #e0d6d6;
                               outline: none;
                               width: 83px;
                               height: 35px;
                               background-color: white;
-                              border-radius: 3px;">WISHLIST</button>
-                              
+                              border-radius: 3px;"  *ngIf="book.quantity!=0 && !itemExists.includes(book.bookId)">WISHLIST</button>
+  
+                                
                               
                            
                             </div> 

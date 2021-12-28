@@ -5,7 +5,7 @@
         </div>
         <span routerLink="/booklist" class="bookstore">Bookstore</span>
         <form>
-            <input *ngIf="fullDisplay"   [(ngModel)]="bookName" class="search" type="text" placeholder="Search..." name="search">
+            <input *ngIf="fullDisplay" (keyup)="search($event)" [(ngModel)]="searchTerm" class="search" type="text" placeholder="Search..." name="search">
         </form>
 
 

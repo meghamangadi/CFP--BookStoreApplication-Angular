@@ -24,12 +24,17 @@ export class DashboardComponent implements OnInit {
  
  itemExists : number [] = [];
 
-  constructor(private cartServiceService:CartServiceService,private bookServiceService: BookServiceService , private router: Router,  private matSnackBar: MatSnackBar,) { }
+  constructor(private cartServiceService:CartServiceService,private bookServiceService: BookServiceService , private router: Router,  private matSnackBar: MatSnackBar) { }
   ngOnInit(): void {
 
     this.getAllBooks();
    
      
+    this.cartServiceService.search.subscribe(val => {
+      
+      this.searchTerm = val
+    });
+   
    
   }
 
@@ -42,14 +47,16 @@ export class DashboardComponent implements OnInit {
   }
 
   onClick(id: number) {
-  
+    console.log("Helloooooo",id)
  this.hideButton = true;
     this.body = ({ "userId" : this.userId, "bookId" : id ,
   "quantity" : 1});
 
-  this.cartServiceService.addToCart(this.body).subscribe(response => {
+  this.cartServiceService.addToCart(this.body).subscribe(response  => {
     
-    if(id && !this.itemExists.includes(id)){
+    if( id && !this.itemExists.includes(id)){
+
+      console.log("Helloooooo",id)
       this.itemExists.push(id);
     }
   });

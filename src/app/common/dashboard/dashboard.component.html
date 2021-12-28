@@ -13,7 +13,8 @@
 
         <div class="body">
 
-            <mat-card class="matcard"  *ngFor="let books of  booksList" >
+            <mat-card class="matcard"  *ngFor="let books of  booksList  | filter:searchTerm
+            " >
                 <div>
                     <div class=" book_image">
 
@@ -36,7 +37,7 @@
                         <div class="book_price">Rs.{{books.bookPrice}}</div>
                     </div>
                     <div class="button-action">
-                        <button class="add-to-cart" (click)="onClick(books.bookId)" [hidden]="books.quantity==0" *ngIf="!itemExists.includes(books.bookId)">Add&nbsp;To BAG</button>
+                        <button class="add-to-cart" (click)="onClick(books.bookId)" [hidden]="books.quantity==0 && hideButton == true">Add&nbsp;To BAG</button>
                         <button class="added-to-cart" [hidden]="!itemExists.includes(books.bookId) || books.quantity==0" >Added&nbsp;To Bag</button>
                         <button class="wishlist" *ngIf="books.quantity!=0 && !itemExists.includes(books.bookId)">WISHLIST</button>
                         <button class="wishlist-zero" *ngIf="books.quantity==0">WISHLIST</button>

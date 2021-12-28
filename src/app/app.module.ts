@@ -30,6 +30,7 @@ import { AllBooksComponent } from './common/all-books/all-books.component';
 import { CartComponent } from 'src/app/common/cart/cart.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { OrderGreetingComponent } from './common/order-greeting/order-greeting.component';
+import { FilterPipe } from './shared/filter.pipe';
 
  
 
@@ -45,6 +46,7 @@ import { OrderGreetingComponent } from './common/order-greeting/order-greeting.c
     CartComponent,
     FooterComponent,
     OrderGreetingComponent,
+    FilterPipe,
     
 
     

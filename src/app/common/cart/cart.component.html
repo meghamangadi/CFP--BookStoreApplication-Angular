@@ -1,9 +1,15 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <app-header></app-header>
 
 <div class="main-container">
     <div>
        
         <span class="cart">My Cart({{cartlist.length}})</span>
+    </div>
+    <div class="container" *ngIf="cartlist.length==0 && cartlist">    
+        <div class="center">
+            <img src="../../../assets/Images/emptycartsitems.png" class="cart-image">         
+        </div>
     </div>
     <!-- <span class="title">My Cart({{cartlist.length}})</span> -->
     <mat-card *ngFor="let bookObj of cartlist" class="card1">
@@ -43,7 +49,7 @@
         
     </mat-card>
     <div>
-        <button (click)="customerSection=true" class="place-order" > Place Order</button>
+        <button (click)="customerSection=true" class="place-order" *ngIf="!cartlist.length==0 && cartlist"> Place Order</button>
        </div>
     <mat-accordion>
         <mat-expansion-panel *ngIf="customerSection" class="forcard">
