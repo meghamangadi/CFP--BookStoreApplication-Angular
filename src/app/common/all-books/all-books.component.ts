@@ -58,7 +58,7 @@ export class AllBooksComponent implements OnInit {
       this.itemExists.push(bookId);
     }
   });
-  this.matSnackBar.open('Book added successfully Into Cart' , 'ok', {
+  this.matSnackBar.open('Book added to your Cart successfully...!!' , 'ok', {
     duration: 5000
   });
   this.route.navigate(['header'])

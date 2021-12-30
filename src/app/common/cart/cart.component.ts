@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   public customerFormGroup: FormGroup ;
   public totalPrice: number = 0;
   public markedPrice: number = 0;
-
+  placeOrderClick : boolean = false;
   public addressAllowed = false;
   public type = [true, false, false];
 
@@ -87,7 +87,7 @@ export class CartComponent implements OnInit {
 
   
   changeAddressAllowed() {
-    // this.addressAllowed = true;
+     this.addressAllowed = true;
   }
 
   typeCall(type: number) {

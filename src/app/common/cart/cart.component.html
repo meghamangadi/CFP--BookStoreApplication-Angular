@@ -10,9 +10,13 @@
         <div class="center">
             <img src="../../../assets/Images/emptycartsitems.png" class="cart-image">         
         </div>
+        <div>
+            <button mat-raised-button class="shopnow" routerLink="/dashboard">Shop Now</button>
+  
+        </div>
     </div>
     <!-- <span class="title">My Cart({{cartlist.length}})</span> -->
-    <mat-card *ngFor="let bookObj of cartlist" class="card1">
+    <mat-card *ngFor="let bookObj of cartlist" class="card1" >
         <div>
             <div>
                 <div class="book1">
@@ -49,7 +53,7 @@
         
     </mat-card>
     <div>
-        <button (click)="customerSection=true" class="place-order" *ngIf="!cartlist.length==0 && cartlist"> Place Order</button>
+        <button (click)="customerSection=true" class="place-order" *ngIf="cartlist.length!=0 && cartlist" > Place Order</button>
        </div>
     <mat-accordion>
         <mat-expansion-panel *ngIf="customerSection" class="forcard">
