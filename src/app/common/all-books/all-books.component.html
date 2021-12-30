@@ -7,8 +7,10 @@
             <div class="checkbox">
                 <button mat-button [matMenuTriggerFor]="menu">Sort by relevance</button>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item class="sort-option" (click)="sortByPriceLowToHigh()">Price:Low to High</button>
-                    <button mat-menu-item class="sort-option" (click)="sortByPriceHighToLow()">Price:High to Low</button>
+                    <button mat-menu-item class="sort-option" (click)="sortByPriceLowToHigh()">Price:Low to
+                        High</button>
+                    <button mat-menu-item class="sort-option" (click)="sortByPriceHighToLow()">Price:High to
+                        Low</button>
                     <button mat-menu-item class="sort-option">Newest Arrivals</button>
                 </mat-menu>
             </div>
@@ -24,26 +26,33 @@
                             <mat-label class="book-name">{{book.bookName}}</mat-label>
 
                             <mat-label class="author">{{book.bookAuthor}}</mat-label>
-                             <mat-label class="book-name" >Rs {{book.bookPrice}}</mat-label>
-                              
-                             <div class="example-button-row">
+                            <mat-label class="book-name">Rs {{book.bookPrice}}</mat-label>
 
-                
-                             
-                              <button  (click)="addToCart( book.bookId)"  [hidden]="book.quantity==0 && hideButton == true" *ngIf="!itemExists.includes(book.bookId)" style=" background-color: rgb(136, 10, 5); margin-right: 15px;"mat-flat-button>ADD TO BAG</button>
-                              <button class="added-to-cart" [hidden]="!itemExists.includes(book.bookId) || book.quantity==0" >Added&nbsp;To Bag</button>
-                             
-                              <button  style="border: 1px solid #e0d6d6;
+                            <div class="example-button-row">
+
+
+
+                                <button (click)="addToCart( book.bookId)"
+                                    [hidden]="book.quantity==0 && hideButton == true"
+                                    *ngIf="!itemExists.includes(book.bookId)"
+                                    style=" background-color: rgb(136, 10, 5); margin-right: 15px;" mat-flat-button>ADD
+                                    TO BAG</button>
+                                <button class="added-to-cart"
+                                    [hidden]="!itemExists.includes(book.bookId) || book.quantity==0">Added&nbsp;To
+                                    Bag</button>
+
+                                <button style="border: 1px solid #e0d6d6;
                               outline: none;
                               width: 83px;
                               height: 35px;
                               background-color: white;
-                              border-radius: 3px;"  *ngIf="book.quantity!=0 && !itemExists.includes(book.bookId)">WISHLIST</button>
-  
-                                
-                              
-                           
-                            </div> 
+                              border-radius: 3px;"
+                                    *ngIf="book.quantity!=0 && !itemExists.includes(book.bookId)">WISHLIST</button>
+
+
+
+
+                            </div>
 
                         </div>
                     </div>
@@ -52,5 +61,3 @@
         </div>
     </div>
 </div>
-
- 
